@@ -89,6 +89,7 @@
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
+    <None Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MiniRadio.cd" />
