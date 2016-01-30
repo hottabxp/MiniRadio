@@ -169,6 +169,12 @@ namespace MiniRadio
 			tagInfo = new TAG_INFO(url);
 			BassTags.BASS_TAG_GetFromURL(channel,tagInfo);
 			music_caption = tagInfo.artist+" - "+tagInfo.title;
+			
+			if (music_caption.IndexOf("[")  > 0)
+			{
+				music_caption = music_caption.Remove(music_caption.IndexOf("["),music_caption.IndexOf("]")-music_caption.IndexOf("[")+1);
+			}
+			
 			label1.Text = music_caption;
 		}
 		
