@@ -1,0 +1,76 @@
+﻿#
+Русский Хит|http://music.myradio.ua/Rus-pop_news128.mp3
+Русское Радио|http://relay.myradio.ua/rusradiofm128.mp3
+Хіт FM|http://relay.myradio.ua/hitfm128.mp3
+KISS FM|http://relay.myradio.ua/kissfm128.mp3
+Хип-Хоп|http://music.myradio.ua/hip-hop_news128.mp3
+Рок Музыка|http://relay.myradio.ua/rockmusic_news128.mp3
+Русская Лирика|http://relay.myradio.ua/RusLyrics_news128.mp3
+Русские хиты 90-х|http://relay.myradio.ua/russkie-hity-90-h_news128.mp3
+Русский Рок|http://relay.myradio.ua/RusRock_news128.mp3
+Русский Рэп|http://relay.myradio.ua/rep_news128.mp3
+Музыка Кино|http://music.myradio.ua/kino_news128.mp3
+Песни Высоцкого|http://music.myradio.ua/pesni-vysockogo_news128.mp3
+#Виктор Цой и группа Кино|http://relay.myradio.ua/viktor-tsoy-i-gruppa-kino_news128.mp3
+English|http://stream.wusb.stonybrook.edu:8090/;?1453784653468.mp3
+Ретро Хит|http://212.26.146.50:8000/retro1.mp3
+Радио Ваня|http://icecast.piktv.cdnvideo.ru/vanya
+Радио 13|http://play4.radio13.ru/mp3
+16 bit|http://16bit.fm:8000/main_mp3_128
+Today's Hits|http://7649.live.streamtheworld.com/977_HITS_SC
+Best FM|http://best.streamr.ru/best-128.mp3
+Best FM Украина|http://radio.bestfm.fm:8080/bestfm_mp3
+Vek FM|http://s5.radioheart.ru:8017/vekfm
+Гоп ФМ|http://online.radiorecord.ru:8102/gop_128
+GTI Radio|http://radio.globaltranceinvasion.com:8000/radioprofusion_gtiradio
+Dance Radio|http://play.danceradio.ru:9000/8046
+DJ FM|http://media.brg.ua:8010/;stream.nsv
+Джем ФМ|http://cast.jamfm.com.ua/jamfm
+Дискотека 80-х|http://ic3.101.ru:8000/c7_0
+Дискотека 90-х|http://ic3.101.ru:8000/c7_8
+Дорожное Радио|http://dor2server.streamr.ru:8000/dor_64_no
+DFM|http://dfm.fmtuner.ru/
+Европа Плюс|http://ep64server.streamr.ru:8031/ep64
+Европа Плюс Украина|http://cast.radiogroup.com.ua:8000/europaplus
+Euro Hits|http://ic3.101.ru:8000/c16_13
+Disco - Зайцев.FM|http://zaycevfm.cdnvideo.ru/ZaycevFM_disco_256.mp3
+Club - Зайцев.FM|http://zaycevfm.cdnvideo.ru/ZaycevFM_electronic_256.mp3
+Pop - Зайцев.FM|http://zaycevfm.cdnvideo.ru/ZaycevFM_pop_256.mp3
+Золотой Век|http://setmedia.ru:8000/high
+Радио Индиго|http://stream0.radiostyle.ru:8000/indigo128
+Radio ICE|http://live26.kiwi.kz:8000/ice
+Радио Кабриолет|http://setmedia.ru:8000/high3
+Радио Карнавал|http://online.carnivalfm.ru:8000/stream/2/
+Радио КМС|http://stream.radiokmc.ru:8000/live
+Love Songs|http://ic3.101.ru:8000/c9_1
+Лав Радио|http://streaming.radionomy.com/Love-Radio
+Радио Медиа няня|http://stream5.radiostyle.ru:8005/mediananny
+Медляк ФМ|http://online.radiorecord.ru:8102/mdl_128
+Радио Мелодия|http://online-radiomelodia.tavrmedia.ua/RadioMelodia
+Mixadance|http://stream.mixadance.fm:8008/mixadance
+MFM|http://radio.mfm.ua:8080/online128
+Радио Натали|http://setmedia.ru:8000/high4
+Наше Радио|http://81.19.85.204/nashe128.mp3
+Наше Радіо Украина|http://cast.nashe.ua/nashe
+Наши Песни|http://online.nashipesni.ru:8000/nashipesni?type=.mp3
+Радио Пассаж|http://listen.radiopassazh.ru:8005/mp3-128
+Пионер ФМ|http://pioner.hostingradio.ru:8008/ppr_HD.mp3
+Play FM|http://streaming.radionomy.com/Elium-ClubDance
+Радио Премиум|http://listen.rpfm.ru:9000/premium128
+Psychedelic Trance|http://psy.rupsy.ru:8000/psy
+Радио P.S.Lan|http://rado.pslan.com:8000/;stream.nsv
+Радио Рекорд|http://online.radiorecord.ru:8101/rr_128
+Радио Рокс|http://online-radioroks.tavrmedia.ua/RadioROKS
+New Age|http://ic3.101.ru:8000/c7_14
+Россия 90-х|http://ic3.101.ru:8000/c6_1
+Свежее радио|http://stream01.chameleon.fm/fresh128.mp3
+Радио Кафе|http://212.26.146.50:8000/cafe1.mp3
+Ретро Хит|http://212.26.146.50:8000/retro1.mp3
+Soul Live|http://radio.soullive.ru:8000/soul128
+Супер Дискотека 90х|http://online.radiorecord.ru:8102/sd90_128
+Радио Ультра|http://nashe2.hostingradio.ru/ultra-128.mp3
+UltRAdio|http://s3.radioheart.ru:8005/live
+Хорошее FM|http://radio.horoshee.fm:8000/mp3
+Русский Шансон|http://ic3.101.ru:8000/c9_2
+Радио Шарманка|http://217.20.164.170:8006/;stream.nsv;
+Радио Шторм|http://live.shtorm.fm:8000/mp3_trend

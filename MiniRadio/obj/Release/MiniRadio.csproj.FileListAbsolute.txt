@@ -1,0 +1,9 @@
+D:\Documents and Settings\Artemiy\Мои документы\SharpDevelop Projects\MiniRadio\MiniRadio\obj\Release\ResolveAssemblyReference.cache
+D:\Documents and Settings\Artemiy\Мои документы\SharpDevelop Projects\MiniRadio\MiniRadio\obj\Release\MiniRadio.MainForm.resources
+D:\Documents and Settings\Artemiy\Мои документы\SharpDevelop Projects\MiniRadio\MiniRadio\obj\Release\GenerateResource.read.1.tlog
+D:\Documents and Settings\Artemiy\Мои документы\SharpDevelop Projects\MiniRadio\MiniRadio\obj\Release\GenerateResource.write.1.tlog
+D:\Documents and Settings\Artemiy\Мои документы\SharpDevelop Projects\MiniRadio\MiniRadio\bin\Release\MiniRadio.exe.config
+D:\Documents and Settings\Artemiy\Мои документы\SharpDevelop Projects\MiniRadio\MiniRadio\bin\Release\MiniRadio.exe
+D:\Documents and Settings\Artemiy\Мои документы\SharpDevelop Projects\MiniRadio\MiniRadio\bin\Release\Bass.Net.dll
+D:\Documents and Settings\Artemiy\Мои документы\SharpDevelop Projects\MiniRadio\MiniRadio\bin\Release\Bass.Net.xml
+D:\Documents and Settings\Artemiy\Мои документы\SharpDevelop Projects\MiniRadio\MiniRadio\obj\Release\MiniRadio.exe
