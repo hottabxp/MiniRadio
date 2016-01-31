@@ -186,6 +186,7 @@ namespace MiniRadio
 			}
 			
 			label1.Text = music_caption;
+			notifyIcon1.Text = music_caption;
 		}
 		
 		void ToolStripButton5Click(object sender, EventArgs e)
@@ -218,7 +219,20 @@ namespace MiniRadio
 			Properties.Settings1.Default.height = this.Height;
 			Properties.Settings1.Default.width = this.Width;
 			
-			
+		if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                notifyIcon1.Visible = true;
+            }
+		}
+		
+
+		
+		void NotifyIcon1DoubleClick(object sender, EventArgs e)
+		{
+		    this.Show();
+            this.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;				
 		}
 	}
 }
