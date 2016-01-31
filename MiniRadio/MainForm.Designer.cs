@@ -74,10 +74,9 @@ namespace MiniRadio
 			this.listView1.ForeColor = System.Drawing.SystemColors.InfoText;
 			this.listView1.FullRowSelect = true;
 			this.listView1.GridLines = true;
-			this.listView1.HideSelection = false;
 			this.listView1.Location = new System.Drawing.Point(0, 71);
 			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(262, 261);
+			this.listView1.Size = new System.Drawing.Size(232, 316);
 			this.listView1.SmallImageList = this.imageList1;
 			this.listView1.TabIndex = 1;
 			this.listView1.UseCompatibleStateImageBehavior = false;
@@ -87,7 +86,7 @@ namespace MiniRadio
 			// columnHeader1
 			// 
 			this.columnHeader1.Text = "Станция";
-			this.columnHeader1.Width = 225;
+			this.columnHeader1.Width = 180;
 			// 
 			// contextMenuStrip1
 			// 
@@ -148,7 +147,7 @@ namespace MiniRadio
 									this.toolStripSplitButton1});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(262, 39);
+			this.toolStrip1.Size = new System.Drawing.Size(232, 39);
 			this.toolStrip1.TabIndex = 10;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -237,26 +236,27 @@ namespace MiniRadio
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 39);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(262, 32);
+			this.panel1.Size = new System.Drawing.Size(232, 32);
 			this.panel1.TabIndex = 11;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoSize = true;
 			this.BackColor = System.Drawing.Color.PowderBlue;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(262, 332);
+			this.ClientSize = new System.Drawing.Size(232, 387);
 			this.Controls.Add(this.listView1);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.toolStrip1);
-			this.HelpButton = true;
 			this.Name = "MainForm";
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
 			this.Text = "MiniRadio";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormFormClosing);
 			this.LocationChanged += new System.EventHandler(this.MainFormLocationChanged);
+			this.Resize += new System.EventHandler(this.MainFormResize);
 			this.contextMenuStrip1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
 			this.toolStrip1.ResumeLayout(false);

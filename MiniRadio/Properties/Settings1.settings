@@ -7,8 +7,14 @@
     <Setting Name="form_location" Type="System.Drawing.Point" Scope="User" Roaming="false">
       <Value Profile="(Default)">0, 0</Value>
     </Setting>
+    <Setting Name="height" Type="System.Int32" Scope="User" Roaming="false">
+      <Value Profile="(Default)">420</Value>
+    </Setting>
     <Setting Name="volume" Type="System.Single" Scope="User" Roaming="false">
       <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="width" Type="System.Int32" Scope="User" Roaming="false">
+      <Value Profile="(Default)">240</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -37,6 +37,18 @@ namespace MiniRadio.Properties {
 		
 		[global::System.Configuration.UserScopedSettingAttribute()]
 		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("420")]
+		public int height {
+			get {
+				return ((int)(this["height"]));
+			}
+			set {
+				this["height"] = value;
+			}
+		}
+		
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
 		[global::System.Configuration.DefaultSettingValueAttribute("1")]
 		public float volume {
 			get {
@@ -44,6 +56,18 @@ namespace MiniRadio.Properties {
 			}
 			set {
 				this["volume"] = value;
+			}
+		}
+		
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("240")]
+		public int width {
+			get {
+				return ((int)(this["width"]));
+			}
+			set {
+				this["width"] = value;
 			}
 		}
 	}

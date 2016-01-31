@@ -31,15 +31,24 @@ namespace MiniRadio
 		string url;				//Url потока станции
 		TAG_INFO tagInfo;		//Структура тегов
 		ListViewItem lvi;
-
+		
+		//int height;				//Высота окна
+		//int width;				//Ширина окна
+			
+			
 	public MainForm()
 		{
 			InitializeComponent();
+			//MessageBox.Show("Heigth = "+this.Height+Environment.NewLine+"Width = "+this.Width);
+
 			this.DesktopLocation = Properties.Settings1.Default.form_location;
 			toolStripSplitButton1.Visible = false;
 			String strVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 			this.Text = "MiniRadio v"+strVersion;
+			this.Width = Properties.Settings1.Default.width;
+			this.Height = Properties.Settings1.Default.height;
 			init();
+			
 			
 		}
 	
@@ -147,6 +156,7 @@ namespace MiniRadio
 		
 		void MainFormFormClosing(object sender, FormClosingEventArgs e)
 		{
+			//MessageBox.Show("Heigth = "+this.Height+Environment.NewLine+"Width = "+this.Width);
 			Properties.Settings1.Default.Save();
 		}
 		
@@ -200,5 +210,15 @@ namespace MiniRadio
 		
 		//////////////////////////////////////////
 
+		
+		void MainFormResize(object sender, EventArgs e)
+		{
+			//width = this.Width;
+			//height = this.Height;
+			Properties.Settings1.Default.height = this.Height;
+			Properties.Settings1.Default.width = this.Width;
+			
+			
+		}
 	}
 }
