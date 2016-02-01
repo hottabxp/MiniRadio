@@ -1,6 +1,6 @@
 ﻿/*
  * Сделано в SharpDevelop.
- * Пользователь: Artemiy
+ * Пользователь: Sergey Karbivnichiy
  * Дата: 24.01.2016
  * Время: 14:55
  * 

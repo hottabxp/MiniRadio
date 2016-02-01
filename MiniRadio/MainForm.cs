@@ -31,16 +31,11 @@ namespace MiniRadio
 		string url;				//Url потока станции
 		TAG_INFO tagInfo;		//Структура тегов
 		ListViewItem lvi;
-		
-		//int height;				//Высота окна
-		//int width;				//Ширина окна
 			
 			
 	public MainForm()
 		{
 			InitializeComponent();
-			//MessageBox.Show("Heigth = "+this.Height+Environment.NewLine+"Width = "+this.Width);
-
 			this.DesktopLocation = Properties.Settings1.Default.form_location;
 			toolStripSplitButton1.Visible = false;
 			String strVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -48,19 +43,27 @@ namespace MiniRadio
 			this.Width = Properties.Settings1.Default.width;
 			this.Height = Properties.Settings1.Default.height;
 			init();
-			
-			
+		
 		}
 	
+		void init() //инициализация программы во время старта
+		{
+			BassNet.Registration("buddyknox@usa.org","2X11841782815");
+			Bass.BASS_Init (-1, 44100, BASSInit.BASS_DEVICE_DEFAULT, IntPtr.Zero);
+			LoadLlaylist("playlist.txt");
+			SetBackColor(System.Drawing.Color.PowderBlue);
+			volume = Properties.Settings1.Default.volume;
+			trackballvolume = Convert.ToInt32(volume*100);
+			trackBar1.Value = trackballvolume;
+			//Bass.BASS_SetVolume(volume);
+		}
+		
 	void Play(string url)
 	{
-			Bass.BASS_ChannelStop(channel);
-       
-			channel = Bass.BASS_StreamCreateURL(url, 0, 
-                   BASSFlag.BASS_DEFAULT, null, IntPtr.Zero);
+			Bass.BASS_ChannelStop(channel);      
+			channel = Bass.BASS_StreamCreateURL(url, 0, BASSFlag.BASS_DEFAULT, null, IntPtr.Zero);
 			Bass.BASS_ChannelPlay(channel,true);
 			timer1.Start();
-
 	}
 	
 	void Pause(int potok)
@@ -68,59 +71,12 @@ namespace MiniRadio
 		Bass.BASS_ChannelPause(channel);
 	}
 		
-
-	
-		void ListView1MouseDoubleClick(object sender, MouseEventArgs e)
-		{
-
-			
-			url = listView1.FocusedItem.SubItems[1].Text;
-			if (url == null)
-				return;
-			Play(url);
-			listView1.FocusedItem.ImageIndex = 1;
-			listView1.Items[ItemIndex].ImageIndex = 9;
-			listView1.Items[ItemIndex].BackColor = System.Drawing.Color.PowderBlue;
-			listView1.FocusedItem.BackColor = System.Drawing.Color.Red;
-			lvi.ListView.Refresh();
-			ItemIndex = listView1.FocusedItem.Index;
-			
-	
-		}
-	
-		void ДобавитьВЛюбимыеToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			MessageBox.Show(listView1.FocusedItem.SubItems[1].Text);
-		}
-	
-		void TrackBar1Scroll(object sender, EventArgs e)
-		{
-			volume = Convert.ToSingle(trackBar1.Value)/100;
-			Bass.BASS_SetVolume(volume);
-			Properties.Settings1.Default.volume = volume;
-		}
-		
-		void init() //инициализация программы во время старта
-		{
-			BassNet.Registration("buddyknox@usa.org","2X11841782815");
-			Bass.BASS_Init (-1, 44100, BASSInit.BASS_DEVICE_DEFAULT, IntPtr.Zero);
-			LoadLlaylist("playlist.txt");
-			
-			//SetBackColor(System.Drawing.Color.GreenYellow);
-			SetBackColor(System.Drawing.Color.PowderBlue);
-			volume = Properties.Settings1.Default.volume;
-			trackballvolume = Convert.ToInt32(volume*100);
-			trackBar1.Value = trackballvolume;
-			Bass.BASS_SetVolume(volume);
-			
-		}
-		
 		void SetBackColor(Color color)
 		{
 			this.BackColor = color;
 			label1.BackColor = color;
 			trackBar1.BackColor = color;
-			listView1.BackColor = color;			
+			listView1.BackColor = color;
 		}
 		
 		void LoadLlaylist(string filename)
@@ -142,7 +98,33 @@ namespace MiniRadio
             	}	
 			}			
 		}
+#region Events
 
+		void ДобавитьВЛюбимыеToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			MessageBox.Show(listView1.FocusedItem.SubItems[1].Text);
+		}
+	
+		void TrackBar1Scroll(object sender, EventArgs e)
+		{
+			volume = Convert.ToSingle(trackBar1.Value)/100;
+			Bass.BASS_SetVolume(volume);
+			Properties.Settings1.Default.volume = volume;
+		}
+		
+		void ListView1MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			url = listView1.FocusedItem.SubItems[1].Text;
+			if (url == null)
+				return;
+			Play(url);
+			listView1.FocusedItem.ImageIndex = 1;
+			listView1.Items[ItemIndex].ImageIndex = 9;
+			listView1.Items[ItemIndex].BackColor = System.Drawing.Color.PowderBlue;
+			listView1.FocusedItem.BackColor = System.Drawing.Color.Red;
+			lvi.ListView.Refresh();
+			ItemIndex = listView1.FocusedItem.Index;
+		}
 		
 		void PauseClick(object sender, EventArgs e)
 		{
@@ -156,7 +138,6 @@ namespace MiniRadio
 		
 		void MainFormFormClosing(object sender, FormClosingEventArgs e)
 		{
-			//MessageBox.Show("Heigth = "+this.Height+Environment.NewLine+"Width = "+this.Width);
 			Properties.Settings1.Default.Save();
 		}
 		
@@ -164,15 +145,7 @@ namespace MiniRadio
 		{
 			Properties.Settings1.Default.form_location = this.Location;
 		}
-		void Button1Click(object sender, System.EventArgs e)
-		{
-			Process.Start("http://www.youtube.com/results?search_query="+music_caption);
-		}
-		
-		void Button2Click(object sender, EventArgs e)
-		{
-			Process.Start("http://vk.com/audio?q="+music_caption);
-		}
+
 		
 		void Timer1Tick(object sender, EventArgs e)
 		{
@@ -209,13 +182,8 @@ namespace MiniRadio
 			Process.Start("http://vk.com/audio?q="+music_caption);
 		}
 		
-		//////////////////////////////////////////
-
-		
 		void MainFormResize(object sender, EventArgs e)
 		{
-			//width = this.Width;
-			//height = this.Height;
 			Properties.Settings1.Default.height = this.Height;
 			Properties.Settings1.Default.width = this.Width;
 			
@@ -225,14 +193,14 @@ namespace MiniRadio
                 notifyIcon1.Visible = true;
             }
 		}
-		
-
-		
+	
 		void NotifyIcon1DoubleClick(object sender, EventArgs e)
 		{
 		    this.Show();
             this.WindowState = FormWindowState.Normal;
             notifyIcon1.Visible = false;				
 		}
+		
+#endregion		
 	}
 }
