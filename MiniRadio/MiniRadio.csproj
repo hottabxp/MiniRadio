@@ -92,8 +92,5 @@
     </None>
     <None Include="README.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="MiniRadio.cd" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
