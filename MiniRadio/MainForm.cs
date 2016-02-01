@@ -23,6 +23,8 @@ namespace MiniRadio
 {
 	public partial class MainForm : Form
 	{
+		TabPage[] tabpage;
+		TabControl tabctrl;
 		int channel;			//Поток
 		int ItemIndex;			//
 		float volume;			//Громкость
@@ -31,32 +33,92 @@ namespace MiniRadio
 		string url;				//Url потока станции
 		TAG_INFO tagInfo;		//Структура тегов
 		ListViewItem lvi;
+		System.Drawing.Color blue = System.Drawing.Color.PowderBlue;
 			
 			
 	public MainForm()
 		{
 			InitializeComponent();
+			
 			this.DesktopLocation = Properties.Settings1.Default.form_location;
 			toolStripSplitButton1.Visible = false;
 			String strVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 			this.Text = "MiniRadio v"+strVersion;
-			this.Width = Properties.Settings1.Default.width;
-			this.Height = Properties.Settings1.Default.height;
-			init();
-		
-		}
-	
-		void init() //инициализация программы во время старта
-		{
+			//this.Width = Properties.Settings1.Default.width;
+			//this.Height = Properties.Settings1.Default.height;
+			CreateControls();
+
+			
+			tabctrl.SelectTab(1);
 			BassNet.Registration("buddyknox@usa.org","2X11841782815");
 			Bass.BASS_Init (-1, 44100, BASSInit.BASS_DEVICE_DEFAULT, IntPtr.Zero);
-			LoadLlaylist("playlist.txt");
-			SetBackColor(System.Drawing.Color.PowderBlue);
+//			LoadLlaylist("pop.txt",listView_pop);
+//			LoadLlaylist("misc.txt",listView_misc);
+//			LoadLlaylist("hip_hop.txt",listView_hip_hop);
+//			LoadLlaylist("retro.txt",listView_retro);
+//			LoadLlaylist("rock.txt",listView_rock);
+//			SetBackColor(System.Drawing.Color.PowderBlue);
 			volume = Properties.Settings1.Default.volume;
 			trackballvolume = Convert.ToInt32(volume*100);
 			trackBar1.Value = trackballvolume;
-			//Bass.BASS_SetVolume(volume);
+			//Bass.BASS_SetVolume(volume);		
 		}
+	
+	
+	
+#region Create controls	
+	void CreateControls()
+	{
+			tabctrl = new TabControl();
+			tabctrl.Dock = DockStyle.Fill;
+			tabctrl.Parent = panel2;
+			tabctrl.Show();
+
+		using (StreamReader sReader = new StreamReader("list.txt"))
+        {
+			int length = File.ReadAllLines("list.txt").Length;
+				
+			tabpage = new TabPage[length];
+			ListView[] listview = new ListView[length];
+			ListViewItem[] listviewitem = new ListViewItem[length];
+			
+          string line;
+          int i = 0;
+          
+          while ((line = sReader.ReadLine()) != null)
+                {
+          	string[] values = line.Split('|');
+          	
+          	tabpage[i] = new TabPage(values[0]);
+          	tabpage[i].Name = i.ToString();
+          	tabpage[i].Parent = tabctrl;
+
+          	listview[i] = new ListView();
+          	listview[i].Name = "listview"+i.ToString();
+          	listview[i].DoubleClick += (lv_DoubleClick);
+          	listview[i].Dock = DockStyle.Fill;
+          	listview[i].GridLines = true;
+          	listview[i].View = View.Details;
+          	listview[i].Parent = tabpage[i];
+          	listview[i].Columns.Add("Станция",180);
+          	LoadLlaylist(values[1],listview[i]);
+          	 i = i+1;
+             	}
+         
+           }		
+	}
+#endregion	
+	
+	
+		void lv_DoubleClick(object sender, EventArgs e)
+		{
+			ListView lv = sender as ListView;
+			//MessageBox.Show(lv.FocusedItem.SubItems[1].Text);
+			Play(lv.FocusedItem.SubItems[1].Text);
+		}
+
+
+
 		
 	void Play(string url)
 	{
@@ -71,17 +133,17 @@ namespace MiniRadio
 		Bass.BASS_ChannelPause(channel);
 	}
 		
-		void SetBackColor(Color color)
-		{
-			this.BackColor = color;
-			label1.BackColor = color;
-			trackBar1.BackColor = color;
-			listView1.BackColor = color;
-		}
+//		void SetBackColor(Color color)
+//		{
+//			this.BackColor = color;
+//			label1.BackColor = color;
+//			trackBar1.BackColor = color;
+//			listView_pop.BackColor = color;
+//		}
 		
-		void LoadLlaylist(string filename)
-		{
-			listView1.Items.Clear();
+		void LoadLlaylist(string filename,ListView listview)
+		{			
+			listview.Items.Clear();
 		    using (StreamReader sReader = new StreamReader(filename))
             {
                 string line;
@@ -93,17 +155,14 @@ namespace MiniRadio
 			       		string[] values = line.Split('|');
                    		//listView1.Items.Add(new ListViewItem(values));
                    		lvi = new ListViewItem(values);
-                   		listView1.Items.Add(lvi);
+                   		listview.Items.Add(lvi);
                 	}
             	}	
 			}			
 		}
 #region Events
 
-		void ДобавитьВЛюбимыеToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			MessageBox.Show(listView1.FocusedItem.SubItems[1].Text);
-		}
+
 	
 		void TrackBar1Scroll(object sender, EventArgs e)
 		{
@@ -112,18 +171,35 @@ namespace MiniRadio
 			Properties.Settings1.Default.volume = volume;
 		}
 		
+//		void ListView1MouseDoubleClick(object sender, MouseEventArgs e)
+//		{
+//		ListView lv = sender as ListView;
+//		
+//			url = listView_pop.FocusedItem.SubItems[1].Text;
+//			if (url == null)
+//				return;
+//			Play(url);
+//			listView_pop.FocusedItem.ImageIndex = 1;
+//			listView_pop.Items[ItemIndex].ImageIndex = 9;
+//			listView_pop.Items[ItemIndex].BackColor = System.Drawing.Color.PowderBlue;
+//			listView_pop.FocusedItem.BackColor = System.Drawing.Color.Red;
+//			lvi.ListView.Refresh();
+//			ItemIndex = listView_pop.FocusedItem.Index;
+//		}
 		void ListView1MouseDoubleClick(object sender, MouseEventArgs e)
 		{
-			url = listView1.FocusedItem.SubItems[1].Text;
+			ListView lv = sender as ListView;
+		
+			url = lv.FocusedItem.SubItems[1].Text;
 			if (url == null)
 				return;
 			Play(url);
-			listView1.FocusedItem.ImageIndex = 1;
-			listView1.Items[ItemIndex].ImageIndex = 9;
-			listView1.Items[ItemIndex].BackColor = System.Drawing.Color.PowderBlue;
-			listView1.FocusedItem.BackColor = System.Drawing.Color.Red;
+			lv.FocusedItem.ImageIndex = 1;
+			lv.Items[ItemIndex].ImageIndex = 9;
+			lv.Items[ItemIndex].BackColor = System.Drawing.Color.PowderBlue;
+			lv.FocusedItem.BackColor = System.Drawing.Color.Red;
 			lvi.ListView.Refresh();
-			ItemIndex = listView1.FocusedItem.Index;
+			ItemIndex = lv.FocusedItem.Index;
 		}
 		
 		void PauseClick(object sender, EventArgs e)

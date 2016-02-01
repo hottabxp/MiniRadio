@@ -1,0 +1,2 @@
+﻿Рок Музыка|http://relay.myradio.ua/rockmusic_news128.mp3
+Русский Рок|http://relay.myradio.ua/RusRock_news128.mp3

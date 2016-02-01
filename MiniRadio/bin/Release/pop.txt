@@ -1,0 +1,11 @@
+﻿Русский Хит|http://music.myradio.ua/Rus-pop_news128.mp3
+Русское Радио|http://relay.myradio.ua/rusradiofm128.mp3
+Хіт FM|http://relay.myradio.ua/hitfm128.mp3
+Русские хиты 90-х|http://relay.myradio.ua/russkie-hity-90-h_news128.mp3
+Европа Плюс|http://ep64server.streamr.ru:8031/ep64
+Европа Плюс Украина|http://cast.radiogroup.com.ua:8000/europaplus
+Euro Hits|http://ic3.101.ru:8000/c16_13
+Pop - Зайцев.FM|http://zaycevfm.cdnvideo.ru/ZaycevFM_pop_256.mp3
+Наше Радио|http://81.19.85.204/nashe128.mp3
+Наше Радіо Украина|http://cast.nashe.ua/nashe
+Наши Песни|http://online.nashipesni.ru:8000/nashipesni?type=.mp3

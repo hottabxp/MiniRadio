@@ -1,0 +1,5 @@
+﻿KISS FM|http://relay.myradio.ua/kissfm128.mp3
+Dance Radio|http://play.danceradio.ru:9000/8046
+DJ FM|http://media.brg.ua:8010/;stream.nsv
+Disco - Зайцев.FM|http://zaycevfm.cdnvideo.ru/ZaycevFM_disco_256.mp3
+Club - Зайцев.FM|http://zaycevfm.cdnvideo.ru/ZaycevFM_electronic_256.mp3

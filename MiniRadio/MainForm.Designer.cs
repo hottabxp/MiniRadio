@@ -38,8 +38,6 @@ namespace MiniRadio
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			this.listView1 = new System.Windows.Forms.ListView();
-			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.добавитьВЛюбимыеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -58,36 +56,12 @@ namespace MiniRadio
 			this.imageList2 = new System.Windows.Forms.ImageList(this.components);
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+			this.panel2 = new System.Windows.Forms.Panel();
 			this.contextMenuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
 			this.toolStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// listView1
-			// 
-			this.listView1.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-			this.listView1.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-									this.columnHeader1});
-			this.listView1.ContextMenuStrip = this.contextMenuStrip1;
-			this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView1.ForeColor = System.Drawing.SystemColors.InfoText;
-			this.listView1.FullRowSelect = true;
-			this.listView1.GridLines = true;
-			this.listView1.Location = new System.Drawing.Point(0, 71);
-			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(232, 316);
-			this.listView1.SmallImageList = this.imageList1;
-			this.listView1.TabIndex = 1;
-			this.listView1.UseCompatibleStateImageBehavior = false;
-			this.listView1.View = System.Windows.Forms.View.Details;
-			this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListView1MouseDoubleClick);
-			// 
-			// columnHeader1
-			// 
-			this.columnHeader1.Text = "Станция";
-			this.columnHeader1.Width = 180;
 			// 
 			// contextMenuStrip1
 			// 
@@ -101,7 +75,6 @@ namespace MiniRadio
 			this.добавитьВЛюбимыеToolStripMenuItem.Name = "добавитьВЛюбимыеToolStripMenuItem";
 			this.добавитьВЛюбимыеToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
 			this.добавитьВЛюбимыеToolStripMenuItem.Text = "Добавить в любимые";
-			this.добавитьВЛюбимыеToolStripMenuItem.Click += new System.EventHandler(this.ДобавитьВЛюбимыеToolStripMenuItemClick);
 			// 
 			// imageList1
 			// 
@@ -115,6 +88,7 @@ namespace MiniRadio
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.SystemColors.Control;
 			this.label1.Location = new System.Drawing.Point(78, 3);
+			this.label1.MaximumSize = new System.Drawing.Size(150, 0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(27, 13);
 			this.label1.TabIndex = 3;
@@ -148,7 +122,7 @@ namespace MiniRadio
 									this.toolStripSplitButton1});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(232, 39);
+			this.toolStrip1.Size = new System.Drawing.Size(221, 39);
 			this.toolStrip1.TabIndex = 10;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -237,7 +211,7 @@ namespace MiniRadio
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 39);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(232, 32);
+			this.panel1.Size = new System.Drawing.Size(221, 32);
 			this.panel1.TabIndex = 11;
 			// 
 			// notifyIcon1
@@ -246,6 +220,14 @@ namespace MiniRadio
 			this.notifyIcon1.Text = "notifyIcon1";
 			this.notifyIcon1.DoubleClick += new System.EventHandler(this.NotifyIcon1DoubleClick);
 			// 
+			// panel2
+			// 
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel2.Location = new System.Drawing.Point(0, 71);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(221, 245);
+			this.panel2.TabIndex = 12;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,13 +235,13 @@ namespace MiniRadio
 			this.AutoSize = true;
 			this.BackColor = System.Drawing.Color.PowderBlue;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(232, 387);
-			this.Controls.Add(this.listView1);
+			this.ClientSize = new System.Drawing.Size(221, 316);
+			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.toolStrip1);
 			this.Name = "MainForm";
 			this.ShowIcon = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "MiniRadio";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormFormClosing);
 			this.LocationChanged += new System.EventHandler(this.MainFormLocationChanged);
@@ -273,6 +255,7 @@ namespace MiniRadio
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.NotifyIcon notifyIcon1;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
@@ -291,8 +274,6 @@ namespace MiniRadio
 		private System.Windows.Forms.ToolStripMenuItem добавитьВЛюбимыеToolStripMenuItem;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.ColumnHeader columnHeader1;
-		private System.Windows.Forms.ListView listView1;
 		
 
 	}
