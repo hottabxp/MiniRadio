@@ -25,6 +25,18 @@ namespace MiniRadio.Properties {
 		
 		[global::System.Configuration.UserScopedSettingAttribute()]
 		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("1")]
+		public int activeTab {
+			get {
+				return ((int)(this["activeTab"]));
+			}
+			set {
+				this["activeTab"] = value;
+			}
+		}
+		
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
 		[global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
 		public global::System.Drawing.Point form_location {
 			get {
@@ -49,10 +61,10 @@ namespace MiniRadio.Properties {
 		
 		[global::System.Configuration.UserScopedSettingAttribute()]
 		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-		[global::System.Configuration.DefaultSettingValueAttribute("1")]
-		public float volume {
+		[global::System.Configuration.DefaultSettingValueAttribute("30")]
+		public int volume {
 			get {
-				return ((float)(this["volume"]));
+				return ((int)(this["volume"]));
 			}
 			set {
 				this["volume"] = value;

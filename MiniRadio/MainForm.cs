@@ -23,32 +23,36 @@ namespace MiniRadio
 {
 	public partial class MainForm : Form
 	{
+		const string version = "1.5"; //Версия программы
+		
 		TabPage[] tabpage;
 		TabControl tabctrl;
 		int channel;			//Поток
-		int ItemIndex;			//
+		//int ItemIndex;			//
 		float volume;			//Громкость
-		int trackballvolume;	//Позиция трекбалла
+		//int trackballvolume;	//Позиция трекбалла
 		string music_caption;	//
 		string url;				//Url потока станции
 		TAG_INFO tagInfo;		//Структура тегов
 		ListViewItem lvi;
+		
+		
 		System.Drawing.Color blue = System.Drawing.Color.PowderBlue;
-			
+		
+		string playlist_dir = Environment.GetFolderPath(Environment.SpecialFolder.Personal)+"\\"+"MiniRadio"+"\\"+"playlist"+"\\";		
 			
 	public MainForm()
 		{
 			InitializeComponent();
-			
 			this.DesktopLocation = Properties.Settings1.Default.form_location;
 			toolStripSplitButton1.Visible = false;
 			String strVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-			this.Text = "MiniRadio v"+strVersion;
-			//this.Width = Properties.Settings1.Default.width;
-			//this.Height = Properties.Settings1.Default.height;
-			CreateControls();
+			this.Text = "MiniRadio v"+version;
+			this.Width = Properties.Settings1.Default.width;
+			this.Height = Properties.Settings1.Default.height;
+			CreateControls(blue);
+			panel2.BackColor = blue;
 
-			
 			tabctrl.SelectTab(1);
 			BassNet.Registration("buddyknox@usa.org","2X11841782815");
 			Bass.BASS_Init (-1, 44100, BASSInit.BASS_DEVICE_DEFAULT, IntPtr.Zero);
@@ -57,26 +61,32 @@ namespace MiniRadio
 //			LoadLlaylist("hip_hop.txt",listView_hip_hop);
 //			LoadLlaylist("retro.txt",listView_retro);
 //			LoadLlaylist("rock.txt",listView_rock);
-//			SetBackColor(System.Drawing.Color.PowderBlue);
-			volume = Properties.Settings1.Default.volume;
-			trackballvolume = Convert.ToInt32(volume*100);
-			trackBar1.Value = trackballvolume;
-			//Bass.BASS_SetVolume(volume);		
+			SetBackColor(blue);
+			trackBar1.Value = Properties.Settings1.Default.volume;
+			//trackballvolume = Convert.ToInt32(volume*100);
+			//trackBar1.Value = trackballvolume;
+			//Bass.BASS_SetVolume(volume);
+			//Bass.BASS_ChannelSetAttribute(channel,BASSAttribute.BASS_ATTRIB_VOL,0,1f);
+			Bass.BASS_ChannelSlideAttribute(channel, BASSAttribute.BASS_ATTRIB_VOL,trackBar1.Value/100f,0);
+			//this.Text = ((trackBar1.Value/100f).ToString());
+			volume = trackBar1.Value/100f;
+			
+			tabctrl.SelectedIndex = Properties.Settings1.Default.activeTab;
 		}
 	
 	
 	
 #region Create controls	
-	void CreateControls()
+	void CreateControls(System.Drawing.Color color)
 	{
 			tabctrl = new TabControl();
 			tabctrl.Dock = DockStyle.Fill;
 			tabctrl.Parent = panel2;
 			tabctrl.Show();
 
-		using (StreamReader sReader = new StreamReader("list.txt"))
+		using (StreamReader sReader = new StreamReader(playlist_dir+"list.txt"))
         {
-			int length = File.ReadAllLines("list.txt").Length;
+			int length = File.ReadAllLines(playlist_dir+"list.txt").Length;
 				
 			tabpage = new TabPage[length];
 			ListView[] listview = new ListView[length];
@@ -92,6 +102,7 @@ namespace MiniRadio
           	tabpage[i] = new TabPage(values[0]);
           	tabpage[i].Name = i.ToString();
           	tabpage[i].Parent = tabctrl;
+          	tabpage[i].BackColor = color;
 
           	listview[i] = new ListView();
           	listview[i].Name = "listview"+i.ToString();
@@ -100,7 +111,8 @@ namespace MiniRadio
           	listview[i].GridLines = true;
           	listview[i].View = View.Details;
           	listview[i].Parent = tabpage[i];
-          	listview[i].Columns.Add("Станция",180);
+          	listview[i].BackColor = color;
+          	listview[i].Columns.Add("Станция",175);
           	LoadLlaylist(values[1],listview[i]);
           	 i = i+1;
              	}
@@ -114,16 +126,21 @@ namespace MiniRadio
 		{
 			ListView lv = sender as ListView;
 			//MessageBox.Show(lv.FocusedItem.SubItems[1].Text);
-			Play(lv.FocusedItem.SubItems[1].Text);
+			Play(lv.FocusedItem.SubItems[1].Text,volume);
+			//lv.Items[ItemIndex].BackColor = System.Drawing.Color.PowderBlue;
+			//lv.FocusedItem.BackColor = System.Drawing.Color.Red;
+			//lvi.ListView.Refresh();
+			//ItemIndex = lv.FocusedItem.Index;
 		}
 
 
 
 		
-	void Play(string url)
+	void Play(string url,float volume)
 	{
 			Bass.BASS_ChannelStop(channel);      
 			channel = Bass.BASS_StreamCreateURL(url, 0, BASSFlag.BASS_DEFAULT, null, IntPtr.Zero);
+			Bass.BASS_ChannelSetAttribute(channel,BASSAttribute.BASS_ATTRIB_VOL,volume);
 			Bass.BASS_ChannelPlay(channel,true);
 			timer1.Start();
 	}
@@ -133,18 +150,18 @@ namespace MiniRadio
 		Bass.BASS_ChannelPause(channel);
 	}
 		
-//		void SetBackColor(Color color)
-//		{
-//			this.BackColor = color;
-//			label1.BackColor = color;
-//			trackBar1.BackColor = color;
-//			listView_pop.BackColor = color;
-//		}
+		void SetBackColor(Color color)
+		{
+			this.BackColor = color;
+			label1.BackColor = color;
+			trackBar1.BackColor = color;
+			//listView_pop.BackColor = color;
+		}
 		
 		void LoadLlaylist(string filename,ListView listview)
 		{			
 			listview.Items.Clear();
-		    using (StreamReader sReader = new StreamReader(filename))
+		    using (StreamReader sReader = new StreamReader(playlist_dir+filename))
             {
                 string line;
 
@@ -166,9 +183,10 @@ namespace MiniRadio
 	
 		void TrackBar1Scroll(object sender, EventArgs e)
 		{
-			volume = Convert.ToSingle(trackBar1.Value)/100;
-			Bass.BASS_SetVolume(volume);
-			Properties.Settings1.Default.volume = volume;
+			volume = trackBar1.Value/100f;
+			Bass.BASS_ChannelSetAttribute(channel,BASSAttribute.BASS_ATTRIB_VOL,volume);
+			//Bass.BASS_SetVolume(volume);
+			Properties.Settings1.Default.volume = trackBar1.Value;
 		}
 		
 //		void ListView1MouseDoubleClick(object sender, MouseEventArgs e)
@@ -186,21 +204,21 @@ namespace MiniRadio
 //			lvi.ListView.Refresh();
 //			ItemIndex = listView_pop.FocusedItem.Index;
 //		}
-		void ListView1MouseDoubleClick(object sender, MouseEventArgs e)
-		{
-			ListView lv = sender as ListView;
-		
-			url = lv.FocusedItem.SubItems[1].Text;
-			if (url == null)
-				return;
-			Play(url);
-			lv.FocusedItem.ImageIndex = 1;
-			lv.Items[ItemIndex].ImageIndex = 9;
-			lv.Items[ItemIndex].BackColor = System.Drawing.Color.PowderBlue;
-			lv.FocusedItem.BackColor = System.Drawing.Color.Red;
-			lvi.ListView.Refresh();
-			ItemIndex = lv.FocusedItem.Index;
-		}
+//		void ListView1MouseDoubleClick(object sender, MouseEventArgs e)
+//		{
+//			ListView lv = sender as ListView;
+//		
+//			url = lv.FocusedItem.SubItems[1].Text;
+//			if (url == null)
+//				return;
+//			Play(url,volume);
+//			lv.FocusedItem.ImageIndex = 1;
+//			lv.Items[ItemIndex].ImageIndex = 9;
+//			lv.Items[ItemIndex].BackColor = System.Drawing.Color.PowderBlue;
+//			lv.FocusedItem.BackColor = System.Drawing.Color.Red;
+//			lvi.ListView.Refresh();
+//			ItemIndex = lv.FocusedItem.Index;
+//		}
 		
 		void PauseClick(object sender, EventArgs e)
 		{
@@ -214,6 +232,7 @@ namespace MiniRadio
 		
 		void MainFormFormClosing(object sender, FormClosingEventArgs e)
 		{
+			Properties.Settings1.Default.activeTab = tabctrl.SelectedIndex;
 			Properties.Settings1.Default.Save();
 		}
 		

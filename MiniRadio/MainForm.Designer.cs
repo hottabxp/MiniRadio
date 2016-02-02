@@ -103,6 +103,7 @@ namespace MiniRadio
 			this.trackBar1.Size = new System.Drawing.Size(73, 45);
 			this.trackBar1.TabIndex = 1;
 			this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
+			this.trackBar1.Value = 10;
 			this.trackBar1.Scroll += new System.EventHandler(this.TrackBar1Scroll);
 			// 
 			// timer1
@@ -122,7 +123,7 @@ namespace MiniRadio
 									this.toolStripSplitButton1});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(221, 39);
+			this.toolStrip1.Size = new System.Drawing.Size(224, 39);
 			this.toolStrip1.TabIndex = 10;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -211,7 +212,7 @@ namespace MiniRadio
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 39);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(221, 32);
+			this.panel1.Size = new System.Drawing.Size(224, 32);
 			this.panel1.TabIndex = 11;
 			// 
 			// notifyIcon1
@@ -225,7 +226,7 @@ namespace MiniRadio
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(0, 71);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(221, 245);
+			this.panel2.Size = new System.Drawing.Size(224, 233);
 			this.panel2.TabIndex = 12;
 			// 
 			// MainForm
@@ -235,7 +236,7 @@ namespace MiniRadio
 			this.AutoSize = true;
 			this.BackColor = System.Drawing.Color.PowderBlue;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(221, 316);
+			this.ClientSize = new System.Drawing.Size(224, 304);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.toolStrip1);

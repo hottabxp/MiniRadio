@@ -2,5 +2,5 @@
 Поп|pop.txt
 Рок|rock.txt
 Ретро|retro.txt
-Dance|dance.txt
-Разные|misc.txt
+Dance|club.txt
+Остальные|misc.txt
