@@ -89,10 +89,7 @@
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-<<<<<<< HEAD
-    <None Include="README.txt" />
-=======
->>>>>>> testing
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
