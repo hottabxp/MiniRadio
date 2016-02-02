@@ -1,0 +1,6 @@
+﻿Мои|my.txt
+Поп|pop.txt
+Рок|rock.txt
+Ретро|retro.txt
+Dance|club.txt
+Остальные|misc.txt

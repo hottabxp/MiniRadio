@@ -1,0 +1,22 @@
+﻿Русский Хит|http://music.myradio.ua/Rus-pop_news128.mp3
+Русское Радио|http://relay.myradio.ua/rusradiofm128.mp3
+Хіт FM|http://relay.myradio.ua/hitfm128.mp3
+Европа Плюс|http://ep64server.streamr.ru:8031/ep64
+Европа Плюс Украина|http://cast.radiogroup.com.ua:8000/europaplus
+Euro Hits|http://ic3.101.ru:8000/c16_13
+Pop - Зайцев.FM|http://zaycevfm.cdnvideo.ru/ZaycevFM_pop_256.mp3
+Наше Радио|http://81.19.85.204/nashe128.mp3
+Наше Радіо Украина|http://cast.nashe.ua/nashe
+Наши Песни|http://online.nashipesni.ru:8000/nashipesni?type=.mp3
+Радио Ваня|http://icecast.piktv.cdnvideo.ru/vanya
+Радио 13|http://play4.radio13.ru/mp3
+Best FM|http://best.streamr.ru/best-128.mp3
+Best FM Украина|http://radio.bestfm.fm:8080/bestfm_mp3
+Дорожное Радио|http://dor2server.streamr.ru:8000/dor_64_no
+Радио Шарманка|http://217.20.164.170:8006/;stream.nsv;
+Радио Шторм|http://live.shtorm.fm:8000/mp3_trend
+Радио Пассаж|http://listen.radiopassazh.ru:8005/mp3-128
+Пионер ФМ|http://pioner.hostingradio.ru:8008/ppr_HD.mp3
+Play FM|http://streaming.radionomy.com/Elium-ClubDance
+Медляк ФМ|http://online.radiorecord.ru:8102/mdl_128
+Радио Мелодия|http://online-radiomelodia.tavrmedia.ua/RadioMelodia
