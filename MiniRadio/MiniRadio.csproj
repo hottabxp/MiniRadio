@@ -16,7 +16,7 @@
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <WarningLevel>4</WarningLevel>
-    <ApplicationIcon>pic\radio.ico</ApplicationIcon>
+    <ApplicationIcon>data\pic\radio.ico</ApplicationIcon>
     <SignAssembly>False</SignAssembly>
     <DelaySign>False</DelaySign>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
@@ -89,7 +89,6 @@
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

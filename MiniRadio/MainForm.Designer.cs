@@ -66,14 +66,14 @@ namespace MiniRadio
 			// contextMenuStrip1
 			// 
 			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.добавитьВЛюбимыеToolStripMenuItem});
+			this.добавитьВЛюбимыеToolStripMenuItem});
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(195, 26);
+			this.contextMenuStrip1.Size = new System.Drawing.Size(194, 26);
 			// 
 			// добавитьВЛюбимыеToolStripMenuItem
 			// 
 			this.добавитьВЛюбимыеToolStripMenuItem.Name = "добавитьВЛюбимыеToolStripMenuItem";
-			this.добавитьВЛюбимыеToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+			this.добавитьВЛюбимыеToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
 			this.добавитьВЛюбимыеToolStripMenuItem.Text = "Добавить в любимые";
 			// 
 			// imageList1
@@ -115,12 +115,12 @@ namespace MiniRadio
 			// 
 			this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.Play_btn,
-									this.Pause_btn,
-									this.Youtube_btn,
-									this.Vk_btn,
-									this.LastFM_btn,
-									this.toolStripSplitButton1});
+			this.Play_btn,
+			this.Pause_btn,
+			this.Youtube_btn,
+			this.Vk_btn,
+			this.LastFM_btn,
+			this.toolStripSplitButton1});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(224, 39);
@@ -176,8 +176,8 @@ namespace MiniRadio
 			// 
 			this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.toolStripMenuItem1,
-									this.toolStripMenuItem2});
+			this.toolStripMenuItem1,
+			this.toolStripMenuItem2});
 			this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
 			this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripSplitButton1.Name = "toolStripSplitButton1";
@@ -187,13 +187,13 @@ namespace MiniRadio
 			// toolStripMenuItem1
 			// 
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(179, 22);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItem1.Text = "toolStripMenuItem1";
 			// 
 			// toolStripMenuItem2
 			// 
 			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(179, 22);
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItem2.Text = "toolStripMenuItem2";
 			// 
 			// imageList2
@@ -240,6 +240,7 @@ namespace MiniRadio
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.toolStrip1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainForm";
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -255,6 +256,7 @@ namespace MiniRadio
 			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
+
 		}
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.NotifyIcon notifyIcon1;
