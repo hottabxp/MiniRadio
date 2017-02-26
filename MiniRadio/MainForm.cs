@@ -47,7 +47,8 @@ namespace MiniRadio
 			this.DesktopLocation = Properties.Settings1.Default.form_location;
 			toolStripSplitButton1.Visible = false;
 			String strVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-			this.Text = "MiniRadio v"+version;
+			//this.Text = "MiniRadio v"+version;
+			this.Text = "MiniRadio v"+strVersion;
 			this.Width = Properties.Settings1.Default.width;
 			this.Height = Properties.Settings1.Default.height;
 			CreateControls(blue);
@@ -56,21 +57,10 @@ namespace MiniRadio
 			tabctrl.SelectTab(1);
 			BassNet.Registration("buddyknox@usa.org","2X11841782815");
 			Bass.BASS_Init (-1, 44100, BASSInit.BASS_DEVICE_DEFAULT, IntPtr.Zero);
-//			LoadLlaylist("pop.txt",listView_pop);
-//			LoadLlaylist("misc.txt",listView_misc);
-//			LoadLlaylist("hip_hop.txt",listView_hip_hop);
-//			LoadLlaylist("retro.txt",listView_retro);
-//			LoadLlaylist("rock.txt",listView_rock);
 			SetBackColor(blue);
 			trackBar1.Value = Properties.Settings1.Default.volume;
-			//trackballvolume = Convert.ToInt32(volume*100);
-			//trackBar1.Value = trackballvolume;
-			//Bass.BASS_SetVolume(volume);
-			//Bass.BASS_ChannelSetAttribute(channel,BASSAttribute.BASS_ATTRIB_VOL,0,1f);
 			Bass.BASS_ChannelSlideAttribute(channel, BASSAttribute.BASS_ATTRIB_VOL,trackBar1.Value/100f,0);
-			//this.Text = ((trackBar1.Value/100f).ToString());
 			volume = trackBar1.Value/100f;
-			
 			tabctrl.SelectedIndex = Properties.Settings1.Default.activeTab;
 		}
 	
@@ -125,12 +115,7 @@ namespace MiniRadio
 		void lv_DoubleClick(object sender, EventArgs e)
 		{
 			ListView lv = sender as ListView;
-			//MessageBox.Show(lv.FocusedItem.SubItems[1].Text);
 			Play(lv.FocusedItem.SubItems[1].Text,volume);
-			//lv.Items[ItemIndex].BackColor = System.Drawing.Color.PowderBlue;
-			//lv.FocusedItem.BackColor = System.Drawing.Color.Red;
-			//lvi.ListView.Refresh();
-			//ItemIndex = lv.FocusedItem.Index;
 		}
 
 
@@ -155,7 +140,6 @@ namespace MiniRadio
 			this.BackColor = color;
 			label1.BackColor = color;
 			trackBar1.BackColor = color;
-			//listView_pop.BackColor = color;
 		}
 		
 		void LoadLlaylist(string filename,ListView listview)
@@ -170,7 +154,6 @@ namespace MiniRadio
                 	if (line.IndexOf("#") != 0)
                 	{
 			       		string[] values = line.Split('|');
-                   		//listView1.Items.Add(new ListViewItem(values));
                    		lvi = new ListViewItem(values);
                    		listview.Items.Add(lvi);
                 	}
@@ -185,40 +168,10 @@ namespace MiniRadio
 		{
 			volume = trackBar1.Value/100f;
 			Bass.BASS_ChannelSetAttribute(channel,BASSAttribute.BASS_ATTRIB_VOL,volume);
-			//Bass.BASS_SetVolume(volume);
 			Properties.Settings1.Default.volume = trackBar1.Value;
 		}
 		
-//		void ListView1MouseDoubleClick(object sender, MouseEventArgs e)
-//		{
-//		ListView lv = sender as ListView;
-//		
-//			url = listView_pop.FocusedItem.SubItems[1].Text;
-//			if (url == null)
-//				return;
-//			Play(url);
-//			listView_pop.FocusedItem.ImageIndex = 1;
-//			listView_pop.Items[ItemIndex].ImageIndex = 9;
-//			listView_pop.Items[ItemIndex].BackColor = System.Drawing.Color.PowderBlue;
-//			listView_pop.FocusedItem.BackColor = System.Drawing.Color.Red;
-//			lvi.ListView.Refresh();
-//			ItemIndex = listView_pop.FocusedItem.Index;
-//		}
-//		void ListView1MouseDoubleClick(object sender, MouseEventArgs e)
-//		{
-//			ListView lv = sender as ListView;
-//		
-//			url = lv.FocusedItem.SubItems[1].Text;
-//			if (url == null)
-//				return;
-//			Play(url,volume);
-//			lv.FocusedItem.ImageIndex = 1;
-//			lv.Items[ItemIndex].ImageIndex = 9;
-//			lv.Items[ItemIndex].BackColor = System.Drawing.Color.PowderBlue;
-//			lv.FocusedItem.BackColor = System.Drawing.Color.Red;
-//			lvi.ListView.Refresh();
-//			ItemIndex = lv.FocusedItem.Index;
-//		}
+
 		
 		void PauseClick(object sender, EventArgs e)
 		{
