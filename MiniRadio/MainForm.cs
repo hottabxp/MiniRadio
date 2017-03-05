@@ -35,11 +35,13 @@ namespace MiniRadio
 		string url;				//Url потока станции
 		TAG_INFO tagInfo;		//Структура тегов
 		ListViewItem lvi;
+		public ListViewItem.ListViewSubItem tmp;
 		
 		
 		System.Drawing.Color blue = System.Drawing.Color.PowderBlue;
 		
 		string playlist_dir = Environment.GetFolderPath(Environment.SpecialFolder.Personal)+"\\"+"MiniRadio"+"\\"+"playlist"+"\\";		
+		
 			
 	public MainForm()
 		{
@@ -62,6 +64,7 @@ namespace MiniRadio
 			Bass.BASS_ChannelSlideAttribute(channel, BASSAttribute.BASS_ATTRIB_VOL,trackBar1.Value/100f,0);
 			volume = trackBar1.Value/100f;
 			tabctrl.SelectedIndex = Properties.Settings1.Default.activeTab;
+			tmp = null;
 		}
 	
 	
@@ -114,8 +117,24 @@ namespace MiniRadio
 	
 		void lv_DoubleClick(object sender, EventArgs e)
 		{
+			
 			ListView lv = sender as ListView;
+			
+			//lv.Refresh();
+			//tmp.BackColor = Color.Blue;
 			Play(lv.FocusedItem.SubItems[1].Text,volume);
+			//lv.Items[0].BackColor = Color.Red;
+			
+			if (tmp != null) {
+				
+				tmp.BackColor = Color.PowderBlue;
+			}
+			
+			tabctrl.SelectedTab.BackColor = Color.Red;
+			
+			tmp = lv.FocusedItem.SubItems[0];
+			
+			lv.FocusedItem.SubItems[0].BackColor = Color.Red;
 		}
 
 
@@ -207,7 +226,7 @@ namespace MiniRadio
 			}
 			
 			label1.Text = music_caption;
-			notifyIcon1.Text = music_caption;
+			//notifyIcon1.Text = music_caption;
 		}
 		
 		void ToolStripButton5Click(object sender, EventArgs e)
